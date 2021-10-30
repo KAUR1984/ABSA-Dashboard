@@ -25,5 +25,5 @@ def render_app_store():
     conf = {'method_name': 'scrape', 'args': []}
     app_store_plugin = JobCreator(plugin=PluginsEnum.AppStorePlugin)
     job = app_store_plugin.create_job(conf)
-    df = job.delay().get()
-    return render_template('app_store_data.html',  tables=[df])
+    data = job.delay().get()
+    return render_template('app_store_data.html',  tables=data)

@@ -73,4 +73,4 @@ class AppStorePlugin(Plugin):
                                     "rating":rating,
                                     "user_name":user_name})
             final_data = final_data.append(data, ignore_index = True)
-            return final_data.to_html(classes='data', header='true')
+            return final_data.to_dict(orient='list')

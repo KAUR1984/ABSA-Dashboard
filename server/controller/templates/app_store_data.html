@@ -5,9 +5,22 @@
     <title>Title</title>
 </head>
 <body>
+<table>
+    <tr>
+        {% for key in tables.keys() %}
+            <th> {{key}} </th>
+        {% endfor %}
+    </tr>
+    {% for i in range(0, 50) %}
+    <tr>
+        {% for value in tables.values() %}
+        
+            <td> {{ value[i] }} </td>
 
-{% for table in tables %}
-            {{ table|safe }}
-{% endfor %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+
+</table>
 </body>
 </html>
