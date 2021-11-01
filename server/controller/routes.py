@@ -23,7 +23,7 @@ def view_base():
 @bp.route('/app_store')
 def render_app_store():
     conf = {'method_name': 'scrape', 'args': []}
-    app_store_plugin = JobCreator(plugin=PluginsEnum.AppStorePlugin)
+    app_store_plugin = JobCreator(plugin=PluginsEnum.GooglePlayPlugin)
     job = app_store_plugin.create_job(conf)
 
     # conf = {'method_name': 'predict', 'args': []}
@@ -32,3 +32,5 @@ def render_app_store():
 
     data = job.delay().get()
     return render_template('app_store_data.html',  tables=data)
+
+

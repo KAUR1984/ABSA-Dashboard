@@ -1,11 +1,12 @@
 from workflow_manager.plugin import Plugin
+from plugins.scraper_plugin import ScraperPlugin
 from bs4 import BeautifulSoup
 from bs4.element import Comment
 import pandas as pd
 import numpy as np
 import requests
 
-class AppStorePlugin(Plugin):
+class AppStorePlugin(ScraperPlugin):
     """
         A plugin that crawls for Apple App Store review data.
         Uses code by Shirish Gupta on towardsdatascience.com
