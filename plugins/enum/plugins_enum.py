@@ -21,4 +21,5 @@ class PluginsEnum(Enum):
     ConverterPlugin = 13,
     FilterDataPlugin = 14,
     DuckDuckGoPlugin = 15,
-    AppStorePlugin = 16
+    AppStorePlugin = 16,
+    AbsaPlugin = 17
