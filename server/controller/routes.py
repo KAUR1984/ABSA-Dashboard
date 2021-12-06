@@ -7,6 +7,14 @@ import pandas as pd
 from workflow_manager.job_creator import JobCreator
 from plugins.enum.plugins_enum import PluginsEnum
 
+import dash
+import dash_html_components as html
+import plotly.graph_objects as go
+import dash_core_components as dcc
+import plotly.express as px
+from dash.dependencies import Input, Output
+
+
 """
     Routes for outputs for front-end are set in this module
 """
@@ -33,4 +41,21 @@ def render_app_store():
     data = job.delay().get()
     return render_template('app_store_data.html',  tables=data)
 
+
+df = pd.DataFrame({
+    "Feature": ["Feature1", "Feature2", "Feature3", "Feature4", "Feature5", "Feature6"],
+    "Amount": [0.34, -0.53, 0.67, 0.84, -0.25, 0.44]
+})
+
+@bp.route('/dash_test')
+def dash_test():
+    layout = html.Div(children=[
+        html.H1(children='Hello Dash'),
+
+        dcc.Graph(
+            id='example-graph',
+            figure=fig
+        )
+    ])
+    return layout 
 

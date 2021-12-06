@@ -15,4 +15,4 @@ class GooglePlayPlugin(ScraperPlugin):
         reviews, _ = google_play_scraper.reviews('com.facebook.katana')
         revDf = pd.DataFrame(np.array(reviews), columns=['review'])
         revDf = revDf.join(pd.DataFrame(revDf.pop('review').tolist()))
-        return revDf.to_dict(orient='list')
+        return revDf[['at', 'content', 'score', 'userName']].to_dict(orient='list')
